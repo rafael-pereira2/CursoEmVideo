@@ -1,0 +1,24 @@
+section#conteudo{
+    width: 1000px;
+    margin: auto;
+}
+iframe#frame-spec{
+    width: 380px;
+    height: 280px;
+    border: none;
+    overflow: hidden;
+}
+
+/*
+Por algum motivo ainda desconhecido a função abaixo para esconder o Scroll não funcionou, 
+para que eu tivesse resultado precisei aplicar a função Scrolling="no" dentro do Iframe que eu chamei no HTML:
+
+Não funcionou:
+iframe#frame-spec::-webkit-scrollbar{
+    display: none;
+}
+
+Funcionou
+<iframe src="google-glass.html" name="janela" id="frame-spec" scrolling="no"></iframe>
+*/
+

@@ -1,0 +1,135 @@
+<!--PAREI NA AULA 15 DE HTML 5 DO GUANABARA-->
+
+<!DOCTYPE html> <!--Informa que será usado o HTML 5-->
+<html lang="pt-br"><!--INFORMA O IDIOMA DA PAGINA-->
+<html>
+    <head>
+    <!--Titulo que aparece na abado navegador-->        
+    <title>Tudo sobre Google Glass</title> 
+    
+    <!--Tag para chamado de link de arquivo CSS externo-->
+    <link rel="stylesheet" href="_css/estilo.css"/>
+    <link rel="stylesheet" href="_css/form.css"/>
+        
+    </head>
+    <script language="javascript" src='_javascript/funcoes.js'></script>
+    <script>
+        function calc_total(){
+            var qtd= parseInt(document.getElementById('cQTD').value);
+            tot = qtd* 1500;
+            document.getElementById('cTot').value = tot;
+        }
+    </script>    
+    <body>
+    <div id="interface">
+   
+        <header id="cabecalho">
+    
+        <!--Hgroup é usado como um identificador semantico para o HTML-->       
+        <hgroup>            
+        <h1>Google Glass</h1>
+        <h2>A revolução do Google está chegando</h2>
+        </hgroup>
+         
+<!--nav é um container que cria uma area de navegação-->
+<!--Para criação de listas pode se usar o OL Listas Ordenadas-->
+<!--Ou listas UL ou Listas não ordenadas-->
+<!--Dentro de cada uma delas existe uma Lista de Itens ou IL-->
+<!--Em ol type="" se define como o menu vai aparecer, com um parametro, exemplo e colocar o número 1, vai listar a partir do 1 em diante-->
+<img id="icone" src="_imagens/glass-oculos-preto-peq.png">            
+<nav id="menu">
+    <h1>Menu Principal</h1>
+    <ul type="square">
+        <li onmousemove="mudaFoto('_imagens/home.png')" onmouseout="mudaFoto('_imagens/glass-oculos-preto-peq.png')"><a href="index.html">Home</a></li>
+        <li onmousemove="mudaFoto('_imagens/especificacoes.png')" onmouseout="mudaFoto('_imagens/glass-oculos-preto-peq.png')"><a href="specs.html">Especificações</a></li>
+        <li onmousemove="mudaFoto('_imagens/fotos.png')" onmouseout="mudaFoto('_imagens/glass-oculos-preto-peq.png')"><a href="fotos.html">Fotos</a></li>
+        <li onmousemove="mudaFoto('_imagens/multimidia.png')" onmouseout="mudaFoto('_imagens/glass-oculos-preto-peq.png')"><a href="multimidia.html">Multimídia</a></li>
+        <li onmousemove="mudaFoto('_imagens/contato.png')" onmouseout="mudaFoto('_imagens/glass-oculos-preto-peq.png')"><a href="fale-conosco.html">Fale conosco</a></li>
+    </ul> 
+</nav > 
+</header>
+<section id="corpo-full">
+
+<article id="noticia-principal">  
+<header id="cabecalho-artigo">  
+<hgroup>
+<h3>Fale Conosco</h3>
+<h1>Formulário para Contato</h1>
+<h2>por Gustavo Guanabara</h2>
+<h3 class="direita">Atualizado em 23/Abril/2013</h3>
+</hgroup>
+</header>
+
+<form method="POST" id="fContato" action="mailto:rafael_ppereira@hotmail.com" oninput="calc_total();">
+
+    <fieldset id="usuario"><legend>Identificação do Usuário</legend>
+    <p>Nome: <input type="text" name="tNome" id="cNome" size="20" maxlength="30" placeholder="Nome Completo"/></p>
+    <p>Senha: <input type="password" name="tSenha" id="cSenha" size="20" maxlength="8" placeholder="Máximo 8 digitos"/></p>
+    <p>E-mail: <input type="email" name="tMail" id="cMail" size="20" maxlength="40"/></p>
+    <fieldset id="sexo"><legend>Sexo:</legend>
+        <input type="radio" name="tSexo" id="cMasc" checked/><label for="cMasc">Masculino</label>
+        <input type="radio" name="tSexo" id="cFem"/> <label for="cFem">Feminino</label>
+    </fieldset>
+    
+    <p>Data de Nascimento:<input type="date" name="tNasc" id="cNasc"></p>
+</fieldset>
+
+<fieldset id="endereco"><legend>Endereço do Usuário</legend>    
+    <p>Logradouro: <input type="text" name="tRua" id="cRua" size="20" maxlength="30" placeholder="Nome da rua"/></p>
+    <p>Número: <input type="number" name="tNum" id="cNum" min="1" max="99999"/></p>
+    <p><label for="cEst">Estado:</label>
+    <select name="tEst" id="cEst">
+        <optgroup label="Região Sudeste">
+            <option value="RJ">Rio de Janeiro</option>
+            <option value="SP" selected>São Paulo</option>
+            <option value="MG">Minas Gerais</option>
+        </optgroup>
+
+        <optgroup label="Região Sul">
+            <option value="PR">Paraná</option>
+            <option value="SC" selected>Santa Catarina</option>
+            <option value="RS">Rio Grande do Sul</option>
+        </optgroup>
+    </select></p>
+
+    <p><label for="cCid">Cidade:</label> 
+        <input type="text" name="tCid" id="cCid" maxlength="40" size="20" placeholder="Sua Cidade"/></p>
+        <datalist id="cidades" list="cidades">
+            <option value="Rio de Janeiro"></option>
+            <option value="Nova Iguaçu"></option>
+            <option value="Niterói"></option>
+            <option value="Belford Roxo"></option>
+        </datalist>
+    </fieldset>
+
+<fieldset id="mensagem"><legend>Mensagem do Usuário</legend>
+    <p><label for="cUrg">Grau de Urgência:</label></br>
+    Min<input type="range" name="tUrg" id="cUrg" min="0" max="10" step="2"/>Max</p>
+    <p><label for="cMsg">Mensagem:</label>
+    <textarea name="tMsg" id="cMsg" cols="35" rows="5" placeholder="Deixe sua mensagem aqui..."></textarea></p>
+</fieldset>
+
+<fieldset id="pedido"><legend>Quero um Google Glass</legend>
+    <p><input type="checkbox" name="tPad" id="cPed"/>
+        <label for="cPed">Gostaria de adquirir um Google Glass quando disponível</label><p>
+    <p><label for="cCor">Cor:</label>
+        <input type="color" name="tCor" id="cCor" value="#0000FF"/></p>
+    <p><label for="cQTD">Quantidade:</label>
+        <input type="number" name="tQTD" id="cQTD" min="0" max="5" value="0"/></p>
+    <p><label for="cTot">Preço Total: R$</label>
+        <input type="text" name="tTot" id="cTot" placeholder="Total a pagar..." readonly/></p>
+        
+</fieldset>
+
+<input type="image" src="_imagens/botao-enviar.png"/>
+</form>
+
+<footer id ="rodape">
+    
+    <a href="https://www.facebook.com/CursosEmVideo/" target="_blank">Facebook</a> | 
+    <a href="https://twitter.com/cursosemvideo" target="_blank">Twitter</a></p>
+    </footer>
+    
+</div>
+</body>
+</html>
